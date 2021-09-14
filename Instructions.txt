@@ -1,0 +1,29 @@
+#### Instructions(Commands)
+##1. run_monthly_analysis(self,mode='tpo')  TO RUN Market Profile ANALYSIS OVER SYMBOL LIST FOR Last Month
+#    ### python MktProfApp.py --inputf='sym_small.csv' run_monthly_analysis
+# OR ### python MktProfApp.py --inputf='sym_small.csv' run_monthly_analysis 'vol'
+# OR ### python MktProfApp.py --inputf='sym_small.csv' run_monthly_analysis --mode='vol'
+#    ###
+##2. run_quarterly_analysis(self,mode='tpo') TO RUN Market Profile ANALYSIS OVER SYMBOL LIST FOR Last Quarter
+#    ### python MktProfApp.py --inputf='sym_small.csv' run_quarterly_analysis
+# OR ### python MktProfApp.py --inputf='sym_small.csv' run_quarterly_analysis 'vol'
+# OR ### python MktProfApp.py --inputf='sym_small.csv' run_quarterly_analysis --mode='vol'
+#    ###
+##3. run_generic_analysis(self,side,symbol,year,p,mode='tpo') TO RUN Market Profile ANALYSIS FOR specific symbol over specified quarter or month
+#    ### python MktProfApp.py run_generic_analysis
+# OR ### python MktProfApp.py run_generic_analysis 'M' 'AMZN' 2020 7 'tpo'
+# OR ### python MktProfApp.py run_generic_analysis 'Q' 'MSFT' 2020 1 'tpo'
+# OR ### python MktProfApp.py run_generic_analysis --side='M' --symbol='AMZN' --year=2020 --p=7 --mode='tpo'
+# OR ### python MktProfApp.py run_generic_analysis --side='Q' --symbol='AMZN' --year=2020 --p=2 --mode='tpo'
+#    ###
+##4. run_prev_trading_day_analysis(self,symbol,mode) TO RUN Market Profile ANALYSIS FOR specific symbol for previous trading day
+#    ### python MktProfApp.py run_prev_trading_day_analysis --symbol='QQQ' --mode='tpo'
+
+
+
+1. To create profile for ongoing month execute run_generic_analysis command by specifying parameter --p as current month i.e for Nov 2020:
+   ### python MktProfApp.py run_generic_analysis --side='M' --symbol='QQQ' --year=2020 --p=11 --mode='tpo'
+
+2. For every analysis prices from 9:30 to 16:00 will be used except for the symbols specified in Exclusion_list in Utils.py.
+   for symbols specified in Exclusion_list prices from 00:01 to 23:59 will be used.
+   current exclusion list =>  Exclusion_list = ['QQQ','SPY']
